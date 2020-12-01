@@ -1,0 +1,26 @@
+html{
+  font-size: 1rem;
+}
+
+form{
+  margin-bottom: 2rem;
+}
+
+ul{
+  background-color: lightgrey;
+  display: block;
+  margin-right: 0;
+}
+
+li{
+  padding: 1rem;
+  border-bottom: 0.1rem solid black;
+}
+
+li:hover{
+  background-color: red;
+}
+
+#sonuc{
+  background-color: blue;
+}
