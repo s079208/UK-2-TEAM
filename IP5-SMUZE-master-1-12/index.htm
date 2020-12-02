@@ -32,7 +32,8 @@
               <button @click="pauseVideo">pause</button>
               <button @click="stopVideo">stop</button>
               <input @mousemove="setVolume" type="range" name="volume" id="volume" value="">
-              <button value="addToPlayList">add to playlist</button>
+              <button @click="addQueue">add to queue</button>
+              
           </nav>
   </div>
 </body>
