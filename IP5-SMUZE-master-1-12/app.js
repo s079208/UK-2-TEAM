@@ -23,10 +23,15 @@ var vm = new Vue({
 	methods: {
 		searchVideos: function() {
 			var self = this;
+			/*var queue = ;*/
 			var search = encodeURI(this.search);
 			axios.get('https://vuetv.acmoore.co.uk/search/'+search).then(function (response) {
+
+
 				var first_result = response.data[0];
-				/*self.loadVideo(first_result.video_id);*/
+
+
+				self.loadVideo(first_result.video_id);
 				console.log(response.data);
 				self.searchResults = response.data;
 				for (var i = 0; i < response.data.length; i++) {
@@ -34,7 +39,10 @@ var vm = new Vue({
 					console.log(response.data[i].image);
 					console.log(response.data[i].video_id);
 					console.log(response.data[i].title);
+					
 				}
+				console.log('-----------------efkes iets anders---------')
+				console.log(response.data)
 
 			});
 			/* --------changes h1 to playing title
@@ -51,12 +59,20 @@ var vm = new Vue({
 			this.player.setVolume(volumeValue.value)
 		},
 		addQueue:	function (video) {
-			
 			this.queue.push(video);
-			console.log();
+			console.log(video.video_id);
+
+			for (var i = 0; i < thisqueue.length; i++) {
+				console.log(this.queue[i])
+			}
+			/*console.log(queue);*/
 		},
 		removeQueue:	function () {
+			console.log("delete");
 			this.queue.remove(this.video_id);
+			vue.delete(this.video)
+			
+			
 
 			/*<button @click="removeQueue">remove queue</button>*/
 		},
