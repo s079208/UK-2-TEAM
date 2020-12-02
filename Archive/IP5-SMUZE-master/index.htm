@@ -12,7 +12,8 @@
     <script src="https://vuetv.acmoore.co.uk/js/vue-bundle.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-    <script src="lodash.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="lodash.min.js" defer></script>
     <script src="app.js" defer></script>
 </head>
 
@@ -51,12 +52,9 @@
                 <img :src="video.image">
                 {{ video.title }}
             </a>
-            <button @click="removeQueue(video)">X</button>
+            <button @click="removeQueueVideo">X</button>
           </li>
         </ul>
-
-
-
   </div>
 </body>
 </html>
