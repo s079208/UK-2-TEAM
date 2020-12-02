@@ -3,8 +3,10 @@ var vm = new Vue({
 	data: function () {
 		return {
 			search: null,
-			video_id: 'zKmsZzJQJV0',
+			video_id: null/*'zKmsZzJQJV0'*/,
 			queue: [],
+			playing: [],
+			searchResults: [],
 			/*video_id: null,*/
 			playerVars: {
 				autoplay: 1,
@@ -24,8 +26,9 @@ var vm = new Vue({
 			var search = encodeURI(this.search);
 			axios.get('https://vuetv.acmoore.co.uk/search/'+search).then(function (response) {
 				var first_result = response.data[0];
-				self.loadVideo(first_result.video_id);
+				/*self.loadVideo(first_result.video_id);*/
 				console.log(response.data);
+				self.searchResults = response.data;
 				for (var i = 0; i < response.data.length; i++) {
 					response.data[i]
 					console.log(response.data[i].image);
@@ -34,6 +37,10 @@ var vm = new Vue({
 				}
 
 			});
+			/* --------changes h1 to playing title
+			let videoTitle = document.getElementById("videoTitle");
+			let videoTitleRequest = (response.data[0].title);
+			videoTitle.innerHTML = videoTitleRequest;*/
 		},
 		loadVideo: function (video_id) {this.player.loadVideoById(video_id);},
 		playVideo: function () {this.player.playVideo();},
@@ -43,9 +50,10 @@ var vm = new Vue({
 			let volumeValue = document.getElementById("volume");
 			this.player.setVolume(volumeValue.value)
 		},
-		addQueue:	function () {
-			this.queue.push(this.data);
-			console.log(this.queue[0].video_id);
+		addQueue:	function (video) {
+			
+			this.queue.push(video);
+			console.log();
 		},
 		removeQueue:	function () {
 			this.queue.remove(this.video_id);

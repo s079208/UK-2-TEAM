@@ -24,6 +24,20 @@ li{
 li:hover{
   background-color: red;
 }
+
+img{
+  width: 10vw;
+}
+
+#searchresults, #queue{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+
+
+
 /*ui-helper-hidden-accessible div{
   position: absolute;
   right: 0;
