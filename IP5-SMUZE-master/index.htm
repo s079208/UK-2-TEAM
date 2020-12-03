@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <link rel="icon" type="image/png" href="icon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>SMUZE</title>
+
+    <link id="linkstyle" rel="stylesheet" type="text/css" href="">
+
+    <script src="https://vuetv.acmoore.co.uk/js/vue-bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
+    <script src="lodash.min.js" defer></script>
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <img src="logo.png" alt="">
+    <button id="modebutton" type="button" name="button">Dark mode: on</button>
+  </header>
+  <main>
+    <div id="app">
+
+      <div class="search"></div>
+        <form v-on:submit.prevent="searchVideos">
+          <div class="ui-widget">
+            <input id="youtube" type="text" placeholder="Search Video" v-model="search" >
+            
+              <ul id="searchresults" v-show="searchResults.length > 0">
+                <li v-for="video in searchResults">
+                  <a href="#">
+                      <img :src="video.image">
+                      {{ video.title }}
+                  </a>
+                  <button @click="addQueue(video)" type="button" >
+                    <svg id="addbutton" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs></defs><g id="Shopping_Cart" data-name="Shopping Cart"><circle class="cls-1" cx="23.07" cy="23.33" r="19"/><path class="cls-2" d="M22.17,15.79V30.87a.9.9,0,0,0,1.8,0V15.79a.9.9,0,0,0-1.8,0Z"/><path class="cls-2" d="M15.53,24.23H30.61a.9.9,0,0,0,0-1.8H15.53a.9.9,0,0,0,0,1.8Z"/></g></svg>
+                  </button>
+                </li>
+              </ul>
+          </div>
+        </form>
+
+        <h1 id="videoTitle">Hier komt de titel</h1>
+        <youtube ref="youtube" :video-id="video_id" v-on:ready="ready" v-on:playing="playing" v-on:ended="ended" :player-vars="playerVars"></youtube>
+        
+        <nav>
+          <button @click="playVideo">
+            <svg id="playbutton" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs></defs><g id="Shopping_Cart" data-name="Shopping Cart"><circle class="cls-1" cx="24.99" cy="24.52" r="19"/><path class="cls-2" d="M31.54,25.22,19.2,31.91a.8.8,0,0,1-1.19-.7V17.83a.81.81,0,0,1,1.19-.71l12.34,6.69A.8.8,0,0,1,31.54,25.22Z"/></g></svg>
+          </button>
+          <button @click="pauseVideo">
+            <svg id="pausebutton" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs></defs><g id="Shopping_Cart" data-name="Shopping Cart"><circle class="cls-1" cx="24.29" cy="25.11" r="19"/><path class="cls-2" d="M19.39,17.58V32.65a.9.9,0,0,0,1.8,0V17.58a.9.9,0,0,0-1.8,0Z"/><path class="cls-2" d="M27.39,17.58V32.65a.9.9,0,0,0,1.8,0V17.58a.9.9,0,0,0-1.8,0Z"/></g></svg>
+          </button>
+          <button @click="stopVideo">
+            <svg id="stopbutton" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs></defs><g id="Shopping_Cart" data-name="Shopping Cart"><rect class="cls-1" x="16.13" y="16.88" width="14.5" height="14.5" rx="2"/><circle class="cls-1" cx="23.38" cy="24.13" r="19"/></g></svg>
+          </button>
+          <button @click="skipVideo">
+            <svg id="skipbutton" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs></defs><g id="Shopping_Cart" data-name="Shopping Cart"><circle class="cls-1" cx="24.23" cy="23.51" r="19"/><path class="cls-2" d="M28,24.17l-9.3,6.5A.8.8,0,0,1,17.41,30V17a.8.8,0,0,1,1.26-.66L28,22.85A.8.8,0,0,1,28,24.17Z"/><path class="cls-3" d="M30.36,16V31.05a.7.7,0,0,0,1.39,0V16a.7.7,0,0,0-1.39,0Z"/></g></svg>
+          </button>
+          <button>
+            <svg id = "volumebutton" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs></defs><g id="Shopping_Cart" data-name="Shopping Cart"><circle class="cls-1" cx="23.5" cy="23.5" r="19"/><path id="Icon_awesome-volume-up" data-name="Icon awesome-volume-up" class="cls-2" d="M20.75,17.25l-3,3H14.27a.81.81,0,0,0-.81.81h0V26a.81.81,0,0,0,.81.81h3.46l3,3a.81.81,0,0,0,1.15,0,.78.78,0,0,0,.24-.58V17.83a.82.82,0,0,0-.81-.82A.83.83,0,0,0,20.75,17.25Zm7.92-1.73a.82.82,0,1,0-.91,1.36h0a7.93,7.93,0,0,1,0,13.27.82.82,0,0,0,.87,1.39l0,0a9.56,9.56,0,0,0,0-16Zm1.07,8a6.29,6.29,0,0,0-2.91-5.31.81.81,0,0,0-1.12.25h0A.82.82,0,0,0,26,19.61,4.64,4.64,0,0,1,27.39,26,4.44,4.44,0,0,1,26,27.44a.82.82,0,0,0-.25,1.13.81.81,0,0,0,1.12.26h0a6.25,6.25,0,0,0,2.91-5.3Zm-4.81-2.61a.81.81,0,0,0-.78,1.42h0a1.34,1.34,0,0,1,.55,1.81,1.41,1.41,0,0,1-.55.56.81.81,0,0,0,.78,1.42,3,3,0,0,0,0-5.21Z"/></g></svg>
+          </button>
+          <input @mousemove="setVolume" type="range" name="volume" id="volume" value="">
+        </nav>
+
+        <ul id="queue">
+          <h2>Queue</h2>
+          <li v-for="video in queue">
+            <a href="#">
+                <img :src="video.image">
+                {{ video.title }}
+            </a>
+            <button @click="removeQueue(video)">
+              <svg id="removebutton" id="Iconen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs></defs><circle class="cls-1" cx="23.5" cy="23.5" r="19"/><path class="cls-2" d="M16.65,18.35,29,30.66a1,1,0,0,0,1.47-1.47L18.12,16.88a1,1,0,0,0-1.47,1.47Z"/><path class="cls-2" d="M29,16.88,16.65,29.19a1,1,0,0,0,1.47,1.47L30.43,18.35A1,1,0,0,0,29,16.88Z"/></svg>
+            </button>
+          </li>
+        </ul>
+
+
+
+  </div>
+</main>
+</body>
+</html>

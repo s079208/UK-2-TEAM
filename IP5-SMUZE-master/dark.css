@@ -1,0 +1,211 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* ONDERSTAANDE UITGANGSPUNTEN ZAGEN WE IN DE LES */
+:root {
+  font-size: 62.5%; }
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit; }
+
+html {
+  background-image: url("pattern.svg");
+  background-repeat: repeat;
+  background-size: 30%;
+  background-color: #0c1329; }
+
+body {
+  width: 90%;
+  padding: 1rem;
+  margin: auto;
+  color: white;
+  text-align: center;
+  font-family: zen-new, sans-serif;
+  font-weight: 700;
+  font-style: normal; }
+
+header img {
+  display: block;
+  width: 15rem;
+  margin: auto;
+  margin-bottom: 1rem; }
+
+#modebutton {
+  border-radius: 0;
+  width: 13rem;
+  height: 2rem;
+  margin-bottom: 5rem; }
+
+.dark {
+  background-color: #e88c23;
+  color: #0c1329; }
+
+.light {
+  background-color: white;
+  color: #0c1329; }
+
+iframe {
+  width: 100%;
+  margin: 0 auto; }
+
+nav {
+  margin-bottom: 5rem; }
+
+.ui-widget {
+  width: 20rem;
+  margin: auto;
+  margin-bottom: 1rem; }
+
+.ui-widget li {
+  margin-bottom: 1rem;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  padding: 1rem;
+  color: #f5dd47; }
+
+.ui-widget li:hover {
+  color: #f5dd47;
+  background-color: #3e5069; }
+
+li a {
+  text-decoration: none;
+  color: white;
+  font-family: zen-new, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  display: block;
+  margin-top: 1rem; }
+
+li img {
+  width: 100%;
+  display: block;
+  margin-bottom: 1rem;
+  margin-top: 1rem; }
+
+#queue {
+  background-color: #3e5069;
+  padding: 1rem; }
+
+#queue h2 {
+  font-size: 2rem; }
+
+#youtube {
+  width: 60%;
+  margin: auto;
+  margin-bottom: 5rem; }
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem; }
+
+#submit {
+  margin: auto; }
+
+button {
+  width: 4rem;
+  height: 4rem;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 100%;
+  padding: 0;
+  border: 0;
+  font-family: zen-new, sans-serif;
+  font-weight: 700;
+  font-style: normal; }
+
+input {
+  height: 3rem; }
+
+#addbutton .cls-1 {
+  fill: none;
+  stroke: #f5dd47;
+  stroke-miterlimit: 10; }
+
+#addbutton .cls-2 {
+  fill: #f5dd47; }
+
+#playbutton .cls-1, .cls-2 {
+  fill: none;
+  stroke: #f5dd47;
+  stroke-miterlimit: 10; }
+
+#playbutton .cls-2 {
+  stroke-width: 1.02px; }
+
+#pausebutton .cls-1 {
+  fill: none;
+  stroke: #f5dd47;
+  stroke-miterlimit: 10; }
+
+#pausebutton .cls-2 {
+  fill: #f5dd47; }
+
+#stopbutton .cls-1 {
+  fill: none;
+  stroke: #f5dd47;
+  stroke-miterlimit: 10; }
+
+#volumebutton .cls-1 {
+  fill: none;
+  stroke: #f5dd47;
+  stroke-miterlimit: 10; }
+
+#volumebutton .cls-2 {
+  fill: #f5dd47; }
+
+#removebutton .cls-1 {
+  fill: none;
+  stroke: #3e5069;
+  stroke-miterlimit: 10; }
+
+#removebutton .cls-2 {
+  fill: #3e5069; }

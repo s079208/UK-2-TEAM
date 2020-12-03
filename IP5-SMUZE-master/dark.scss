@@ -1,0 +1,156 @@
+@import "reset_plus.scss";
+
+$color-neutral-text: white;
+$color-main: #0c1329;
+$color-area: #3e5069;
+$color-accent: #f5dd47;
+$color-active: #e88c23;
+
+html{
+	background-image: url("pattern.svg");
+	background-repeat: repeat;
+	background-size: 30%;
+	background-color: $color-main;
+}
+
+body {
+	width: 90%;
+	padding: 1rem;
+	margin: auto;
+	color: $color-neutral-text;
+	text-align: center;
+	font-family: zen-new, sans-serif;
+	font-weight: 700;
+	font-style: normal;
+}
+
+header img{
+	display: block;
+	width: 15rem;
+	margin: auto;
+	margin-bottom: 1rem;
+}
+
+#modebutton{
+	border-radius: 0;
+	width: 13rem;
+	height: 2rem;
+	margin-bottom: 5rem;
+}
+
+.dark{
+	background-color: $color-active;
+	color: $color-main;
+}
+
+.light{
+	background-color: $color-neutral-text;
+	color: $color-main;
+}
+
+iframe {
+	width: 100%;
+	margin: 0 auto;
+}
+
+nav{
+	margin-bottom: 5rem;
+}
+
+.ui-widget{
+	width: 20rem;
+	margin: auto;
+	margin-bottom: 1rem;
+}
+
+.ui-widget li{
+	margin-bottom: 1rem;
+	overflow: hidden;
+  text-overflow: ellipsis;
+	padding: 1rem;
+	color: $color-accent
+}
+
+.ui-widget li:hover{
+	color: $color-accent;
+	background-color: $color-area;
+}
+
+li a{
+	text-decoration: none;
+	color: $color-neutral-text;
+	font-family: zen-new, sans-serif;
+	font-weight: 700;
+	font-style: normal;
+	display: block;
+	margin-top: 1rem;
+}
+
+li img{
+	width: 100%;
+	display: block;
+	margin-bottom: 1rem;
+	margin-top: 1rem;
+}
+
+#queue{
+	background-color: $color-area;
+	padding: 1rem;
+}
+
+#queue h2{
+	font-size: 2rem;
+};
+
+#youtube{
+	width: 60%;
+	margin: auto;
+	margin-bottom: 5rem;
+}
+
+h1{
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
+
+#submit{
+	margin: auto;
+}
+
+button{
+	width: 4rem;
+	height: 4rem;
+	background-color: rgba(0,0,0,0);
+	border-radius: 100%;
+	padding: 0;
+	border: 0;
+	font-family: zen-new, sans-serif;
+	font-weight: 700;
+	font-style: normal;
+}
+
+input{
+	height: 3rem;
+}
+
+#addbutton .cls-1{fill:none;stroke:$color-accent;stroke-miterlimit:10;}
+#addbutton .cls-2{fill:$color-accent;}
+
+#playbutton .cls-1,.cls-2{fill:none;stroke:$color-accent;stroke-miterlimit:10;}
+#playbutton .cls-2{stroke-width:1.02px;}
+
+#pausebutton .cls-1{fill:none;stroke:$color-accent;stroke-miterlimit:10;}
+#pausebutton .cls-2{fill:$color-accent;}
+
+#stopbutton .cls-1{fill:none;stroke:$color-accent;stroke-miterlimit:10;}
+
+#volumebutton .cls-1{fill:none;stroke:$color-accent;stroke-miterlimit:10;}
+#volumebutton .cls-2{fill:$color-accent;}
+
+#removebutton .cls-1{fill:none;stroke:$color-area;stroke-miterlimit:10;}
+#removebutton .cls-2{fill:$color-area;}
+
+#skipbutton .cls-1,.cls-2{fill:none;stroke:$color-accent;stroke-miterlimit:10;}
+#skipbutton .cls-2{stroke-width:0.9px;}
+#skipbutton .cls-3{fill:$color-accent;}
+

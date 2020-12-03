@@ -1,0 +1,12 @@
+.ui-widget {
+  position: relative;
+}
+#searchresults {
+  /*position: absolute;*/
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: white;
+  padding: 10px;
+  border: solid 1px lime;
+}
