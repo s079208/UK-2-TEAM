@@ -57,6 +57,9 @@ html {
   -webkit-box-sizing: inherit;
   box-sizing: inherit; }
 
+::-webkit-scrollbar {
+  display: none; }
+
 html {
   background-image: url("pattern.svg");
   background-repeat: repeat;
@@ -95,11 +98,14 @@ header {
     height: 2rem; }
 
 #youtube {
-  height: 3rem;
+  height: 4rem;
   width: 100%;
   margin: auto;
   margin-bottom: 3rem;
-  text-align: center; }
+  text-align: center;
+  border-radius: 5rem;
+  font-size: 2rem;
+  text-transform: uppercase; }
 
 ul li {
   display: -ms-grid;
@@ -148,10 +154,6 @@ ul li {
     -ms-grid-row-span: 1;
     grid-row: 2/3;
     margin-left: 60%; }
-
-.ui-widget li:hover {
-  color: #f5dd47;
-  background-color: #3e5069; }
 
 h1 {
   font-size: 2rem;
@@ -240,6 +242,9 @@ button {
 #pausebutton:hover .cls-2 {
   fill: #e88c23; }
 
+#stopbutton .cls-2 {
+  fill: #e88c23; }
+
 #stopbutton:hover .cls-1 {
   stroke: #e88c23; }
 
@@ -265,7 +270,8 @@ button {
   stroke: #f5dd47; }
 
 #skipbutton .cls-2 {
-  stroke: #f5dd47; }
+  stroke: #f5dd47;
+  fill: #f5dd47; }
 
 #skipbutton .cls-2 {
   stroke-width: 0.9px; }
@@ -277,26 +283,199 @@ button {
   stroke: #e88c23; }
 
 #skipbutton:hover .cls-2 {
-  stroke: #e88c23; }
+  stroke: #e88c23;
+  fill: #e88c23; }
 
 #skipbutton:hover .cls-3 {
   fill: #e88c23; }
 
 @media (min-width: 800px) {
-  #youtube {
-    text-align: left; } }
+  .ui-widget li {
+    font-size: 2.5rem; }
+  button {
+    width: 5rem;
+    height: 5rem; }
+  form {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1/3; }
+    form #searchresults {
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr; }
+      form #searchresults li {
+        -ms-grid-columns: 0.9fr 0.1fr;
+        grid-template-columns: 0.9fr 0.1fr;
+        font-weight: 100; }
+        form #searchresults li a {
+          -ms-grid-columns: 0.4fr 0.6fr;
+          grid-template-columns: 0.4fr 0.6fr; }
+  #queue {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; }
+    #queue h2 {
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 2;
+      grid-column: 1/3; }
+  ul, #queue {
+    width: 100%;
+    height: auto;
+    overflow: scroll; }
+    ul li, #queue li {
+      -ms-grid-columns: 0.8fr 0.2fr;
+      grid-template-columns: 0.8fr 0.2fr;
+      -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr; }
+      ul li a, #queue li a {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 1;
+        grid-column: 1/2;
+        -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr; }
+        ul li a img, #queue li a img {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 1;
+          grid-column: 1/2; }
+        ul li a p, #queue li a p {
+          -ms-grid-column: 2;
+          -ms-grid-column-span: 1;
+          grid-column: 2/3;
+          font-size: 2rem;
+          font-weight: 400; }
+      ul li button, #queue li button {
+        -ms-grid-column: 2;
+        -ms-grid-column-span: 1;
+        grid-column: 2/3;
+        -ms-grid-row: 1;
+        -ms-grid-row-span: 1;
+        grid-row: 1/2;
+        margin: 20% auto; } }
 
 @media (min-width: 1200px) {
+  #app {
+    margin-top: 10rem;
+    width: 100%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 60% 40%;
+    grid-template-columns: 60% 40%;
+    -ms-grid-rows: 1fr 5rem 40rem 5rem;
+    grid-template-rows: 1fr 5rem 40rem 5rem;
+    grid-gap: 2rem; }
+    #app form {
+      -ms-grid-row: 1;
+      -ms-grid-row-span: 1;
+      grid-row: 1/2;
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 2;
+      grid-column: 1/3; }
+      #app form #searchresults {
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr; }
+        #app form #searchresults li {
+          -ms-grid-columns: 0.9fr 0.1fr;
+          grid-template-columns: 0.9fr 0.1fr;
+          font-weight: 100; }
+          #app form #searchresults li a {
+            -ms-grid-columns: 0.4fr 0.6fr;
+            grid-template-columns: 0.4fr 0.6fr; }
+    #app h1 {
+      -ms-grid-row: 2;
+      -ms-grid-row-span: 1;
+      grid-row: 2/3;
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 1;
+      grid-column: 1/2;
+      font-weight: 400;
+      text-align: left;
+      font-size: 3rem; }
+    #app iframe {
+      -ms-grid-row: 3;
+      -ms-grid-row-span: 1;
+      grid-row: 3/4;
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 1;
+      grid-column: 1/2; }
+    #app nav {
+      width: 40%;
+      -ms-grid-row: 4;
+      -ms-grid-row-span: 1;
+      grid-row: 4/5;
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 1;
+      grid-column: 1/2; }
+      #app nav button:nth-child(5) {
+        display: block;
+        -ms-grid-row: 2;
+        -ms-grid-row-span: 1;
+        grid-row: 2/3;
+        -ms-grid-column: 2;
+        -ms-grid-column-span: 1;
+        grid-column: 2/3; }
+      #app nav input {
+        display: block;
+        -ms-grid-column: 3;
+        -ms-grid-column-span: 2;
+        grid-column: 3/5; }
+    #app #queue {
+      -ms-grid-row: 2;
+      -ms-grid-row-span: 3;
+      grid-row: 2/5;
+      -ms-grid-column: 2;
+      -ms-grid-column-span: 1;
+      grid-column: 2/3;
+      width: 100%;
+      height: auto;
+      overflow: scroll; }
+      #app #queue li {
+        -ms-grid-columns: 0.8fr 0.2fr;
+        grid-template-columns: 0.8fr 0.2fr;
+        -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr; }
+        #app #queue li a {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 1;
+          grid-column: 1/2;
+          -ms-grid-columns: 1fr 1fr;
+          grid-template-columns: 1fr 1fr;
+          -ms-grid-rows: 1fr;
+          grid-template-rows: 1fr; }
+          #app #queue li a img {
+            -ms-grid-column: 1;
+            -ms-grid-column-span: 1;
+            grid-column: 1/2; }
+          #app #queue li a p {
+            -ms-grid-column: 2;
+            -ms-grid-column-span: 1;
+            grid-column: 2/3;
+            font-size: 2rem;
+            font-weight: 400; }
+        #app #queue li button {
+          -ms-grid-column: 2;
+          -ms-grid-column-span: 1;
+          grid-column: 2/3;
+          -ms-grid-row: 1;
+          -ms-grid-row-span: 1;
+          grid-row: 1/2;
+          margin: 20% auto; }
   #youtube {
     position: fixed;
     top: 2.5rem;
-    right: 6vw;
+    right: 3vw;
     width: 40vw;
-    text-align: right; }
+    text-align: center; }
   header {
     position: fixed;
     width: 45vw; }
   #searchresults {
-    margin-top: 8rem; }
-  h1 {
-    margin-top: 10rem; } }
+    margin-top: 8rem; } }
