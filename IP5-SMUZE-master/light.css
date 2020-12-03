@@ -136,8 +136,8 @@ li img {
 #queue h2 {
   font-size: 2rem; }
 
-#youtube {
-  width: 60%;
+input #youtube {
+  width: 80vw;
   margin: auto;
   margin-bottom: 5rem; }
 

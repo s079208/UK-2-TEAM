@@ -8,6 +8,7 @@ var vm = new Vue({
 			searchResults: [],
 			currentVideo: null,
 			isplaying: false,
+			tittle: null,
 			playerVars: {
 				autoplay: 1,
 				controls: 0,
@@ -32,9 +33,8 @@ var vm = new Vue({
 			this.player.loadVideoById(video.video_id);
 			this.currentVideo = video;
 			console.log(video);
-			/*let videoTitle = document.getElementById("videoTitle");
-			let videoTitleRequest = (response.data[0].title);
-			videoTitle.innerHTML = videoTitleRequest;*/
+			let videoTitle = document.getElementsByTagName("h1")[0];
+			videoTitle.innerHTML = video.title;
 		},
 		playVideo 	() {this.player.playVideo();},
 		pauseVideo 	() {this.player.pauseVideo();},
