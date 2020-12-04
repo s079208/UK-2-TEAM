@@ -66,9 +66,8 @@
           <input @mousemove="setVolume" type="range" name="volume" id="volume" value="">
         </nav>
 
-        <div id="queue">
+        <ul id="queue">
           <h2>Queue</h2>
-          <ul>
           <li v-for="video in queue">
             <a href="#">
                 <img :src="video.image">
@@ -78,8 +77,7 @@
               <svg id="removebutton" id="Iconen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs></defs><circle class="cls-1" cx="23.5" cy="23.5" r="19"/><path class="cls-2" d="M16.65,18.35,29,30.66a1,1,0,0,0,1.47-1.47L18.12,16.88a1,1,0,0,0-1.47,1.47Z"/><path class="cls-2" d="M29,16.88,16.65,29.19a1,1,0,0,0,1.47,1.47L30.43,18.35A1,1,0,0,0,29,16.88Z"/></svg>
             </button>
           </li>
-          </ul>
-        </div>
+        </ul>
 
 
 
